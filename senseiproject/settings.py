@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mz1xlyf5dwati^q&yo2*1e(1f)+!zlgp5pn+*69*-3le^!p#ar
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -90,11 +90,11 @@ DATABASES = {
         'NAME': 'sensei_database',
         'USER': 'abhoy',
         'PASSWORD': 'Qy5EKGTSKuWCi5FdIm6ruv932GudenKv',
-        'HOST': 'dpg-cnjinr7109ks73bp6e1g-a',
+        'HOST': 'dpg-cnjinr7109ks73bp6e1g-a.singapore-postgres.render.com',
         'PORT': '5432',
-
     }
 }
+
 
 REST_FRAMEWORK = {
    'DEFAULT_AUTHENTICATION_CLASSES': [
