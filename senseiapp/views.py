@@ -304,4 +304,24 @@ class TeacherSearch(APIView):
         return Response(serializer.data)
 
 
+class UserDetailView(APIView):
+    def get(self, request):
+        username = request.query_params.get('username', None)
+        if username is None:
+            return Response({'error': 'Username parameter is required'}, status=status.HTTP_400_BAD_REQUEST)
 
+        user = get_object_or_404(User, username=username)
+        serializer = UserSerializer(user)
+
+        if user.is_teacher:
+            response_data = {
+                'message': f'The user {username} is a teacher.',
+                'user_details': serializer.data
+            }
+        else:
+            response_data = {
+                'message': f'The user {username} is not a teacher.',
+                'user_details': serializer.data
+            }
+
+        return Response(response_data, status=status.HTTP_200_OK)

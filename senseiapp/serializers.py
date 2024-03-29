@@ -59,3 +59,5 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id','teacher', 'student', 'content', 'rating']
+
+

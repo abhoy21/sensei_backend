@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import UserRegistration, TeacherDetailView, IsTeacherAPIView, TeacherListAPIView, TeacherEditAPIView, \
     AddStudentToTeacher, StudentListView, CheckUsernameInStudentListView, AddReview, TeacherReviewStudentsAPIView, \
-    TeacherSearch
+    TeacherSearch, UserDetailView
 
 urlpatterns = [
     path('register/user', UserRegistration.as_view(), name='user_registration'),
@@ -15,4 +15,5 @@ urlpatterns = [
     path('add_review', AddReview.as_view(), name='add_review'),
     path('teachers/<str:username>/reviewed_students', TeacherReviewStudentsAPIView.as_view(), name='teacher_reviewed_students'),
     path('searchteachers', TeacherSearch.as_view(), name='teacher_search'),
+    path('user_details', UserDetailView.as_view(), name='user-detail'),
 ]
